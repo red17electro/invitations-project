@@ -1,0 +1,41 @@
+{
+  "name": "invite",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "test": "ng test",
+    "lint": "ng lint",
+    "e2e": "ng e2e",
+    "postinstall": "ngcc --properties es2015",
+    "server": "nodemon server.express.js",
+    "start:all": "run-p server start"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "9.1.12",
+    "@angular/common": "9.1.12",
+    "@angular/compiler": "9.1.12",
+    "@angular/core": "9.1.12",
+    "@angular/forms": "9.1.12",
+    "@angular/platform-browser": "9.1.12",
+    "@angular/platform-browser-dynamic": "9.1.12",
+    "@angular/router": "9.1.12",
+    "rxjs": "~6.6.3",
+    "zone.js": "~0.10.2"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "~0.901.12",
+    "@angular/cli": "9.1.12",
+    "@angular/compiler-cli": "9.1.12",
+    "@angular/language-service": "9.1.12",
+    "@types/node": "^12.12.14",
+    "codelyzer": "^5.2.2",
+    "json-server": "^0.14.2",
+    "nodemon": "^1.18.9",
+    "npm-run-all": "^4.1.5",
+    "tslint": "^6.1.3",
+    "typescript": "3.8.2"
+  }
+}

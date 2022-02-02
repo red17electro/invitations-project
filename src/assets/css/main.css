@@ -1,0 +1,33 @@
+body {
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  color: #2c232e;
+}
+
+.content {
+  text-align: center;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 40px 100px;
+}
+
+.button {
+  background: #1c6cff;
+  border: 1px solid #1c6cff;
+  border-radius: 2rem;
+  color: #fff;
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: 600;
+  padding: 16px 30px;
+  width: 300px;
+}
+
+.link {
+  color: #1c6cff;
+}

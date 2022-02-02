@@ -1,0 +1,21 @@
+.success {
+   color: #7ca64a;
+   background-color: #ecf4e2;
+   border-color: #a0d561;
+}
+
+.error {
+   color: #fc5c48;
+   background-color: #feeeec;
+   border-color: #fdd8d3;
+}
+
+table {
+  margin: 0 auto;
+  width: 400px;
+  border-collapse: collapse;
+}
+
+table tr, td, th {
+  border: 1px solid #ccc;
+}
