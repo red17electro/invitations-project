@@ -19,7 +19,7 @@ export class InviteService {
     return this.http.get<User[]>(this.url);
   }
 
-  invite(user: User) {
-    this.http.post<User>(this.url, user);
+  invite(user: User): Observable<User> {
+    return this.http.post<User>(this.url, user);
   }
 }
