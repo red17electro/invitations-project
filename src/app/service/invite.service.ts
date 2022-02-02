@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import {Observable, throwError} from 'rxjs';
+import {catchError} from "rxjs/operators";
 
 export interface User {
   id?: number;
@@ -20,6 +21,6 @@ export class InviteService {
   }
 
   invite(user: User): Observable<User> {
-    return this.http.post<User>(this.url, user);
+    return this.http.post<User>(this.url, user).pipe(catchError(error => throwError({...error, userEmail: user.email})));
   }
 }

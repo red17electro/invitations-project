@@ -3,6 +3,7 @@ import {InviteService, User} from '../service/invite.service';
 import {concat, EMPTY} from "rxjs";
 import {catchError} from "rxjs/operators";
 import {Router} from "@angular/router";
+import {ToastrService} from "ngx-toastr";
 
 const users: User[] = [
   { email: 'user0@comtravo.com' },
@@ -24,7 +25,9 @@ const users: User[] = [
   styleUrls: ['./invite.component.css']
 })
 export class InviteComponent implements OnInit {
-  constructor(private inviteService: InviteService, private router: Router) {}
+  constructor(private inviteService: InviteService,
+              private toastrService: ToastrService,
+              private router: Router) {}
 
   ngOnInit(): void {
     console.log(users);
@@ -35,11 +38,11 @@ export class InviteComponent implements OnInit {
     const requests = users.map(user => {
       return this.inviteService.invite({
         email: user.email
-      } as User).pipe(catchError(err => {
+      } as User).pipe(catchError((err) => {
         if (err.status === 409) {
-          console.log("user already exists!");
+          this.toastrService.error(`409: User ${err.userEmail} already exists!`, 'Error');
         } else if (err.status === 500) {
-          console.log("Server is not responding!");
+          this.toastrService.error(`500: Server was not responding while inviting user ${err.userEmail}!`, 'Error');
         }
         return EMPTY;
       }));
@@ -49,11 +52,9 @@ export class InviteComponent implements OnInit {
       invitationsCount++;
       if (user.email === users[users.length - 1].email) {
         this.router.navigate(['/list']);
-        console.log(`${invitationsCount} users were successfully invited!`);
+        this.toastrService.success(`${invitationsCount} users were successfully invited!`, 'Invitation process completed');
       }
-      console.log('Users were successfully invited!', user);
-    }, error => {
-      console.log('Error happened when inviting users!', error);
+      this.toastrService.success(`User ${user.email} has been invited`, 'Success');
     });
   }
 }
