@@ -50,11 +50,11 @@ export class InviteComponent implements OnInit {
 
     concat(...requests).subscribe(user => {
       invitationsCount++;
+      this.toastrService.success(`User ${user.email} has been invited`, 'Success');
       if (user.email === users[users.length - 1].email) {
         this.router.navigate(['/list']);
-        this.toastrService.success(`${invitationsCount} users were successfully invited!`, 'Invitation process completed');
+        this.toastrService.info(`${invitationsCount} users were successfully invited!`, 'Invitation process completed');
       }
-      this.toastrService.success(`User ${user.email} has been invited`, 'Success');
     });
   }
 }

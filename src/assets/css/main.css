@@ -28,6 +28,10 @@ body {
   width: 300px;
 }
 
+.button:hover {
+  background: #4f88f1;
+}
+
 .link {
   color: #1c6cff;
 }
